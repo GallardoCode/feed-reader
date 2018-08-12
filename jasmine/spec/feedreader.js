@@ -34,13 +34,13 @@ $(function() {
         function testUrl(object) {
             it('object has a URL', () => {
                 expect(object.url).not.toBe(null);
-                expect(object.url).not.toBe("");
+                expect(object.url).not.toBe('');
             });
         }
 
         allFeeds.forEach(v => {
             testUrl(v);
-        })
+        });
 
         /* TODO: Write a test that loops through each feed
          * in the allFeeds object and ensures it has a name defined
