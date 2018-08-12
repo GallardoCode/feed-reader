@@ -32,7 +32,8 @@ $(function() {
          * and that the URL is not empty.
          */
         function testUrl(object) {
-            it('object has a URL', () => {
+            it('url is defined and not empty', () => {
+                expect(object.url).toBeDefined();
                 expect(object.url).not.toBe(null);
                 expect(object.url).not.toBe('');
             });
