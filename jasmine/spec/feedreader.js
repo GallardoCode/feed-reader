@@ -39,14 +39,24 @@ $(function() {
             });
         }
 
-        allFeeds.forEach(v => {
-            testUrl(v);
-        });
 
         /* TODO: Write a test that loops through each feed
          * in the allFeeds object and ensures it has a name defined
          * and that the name is not empty.
          */
+
+        function testName(object) {
+            it('name is defined and not empty', () => {
+                expect(object.name).toBeDefined();
+                expect(object.name).not.toBe(null);
+                expect(object.name).not.toBe('');
+            });
+        }
+
+        allFeeds.forEach(v => {
+            testUrl(v);
+            testName(v);
+        });
     });
 
 
