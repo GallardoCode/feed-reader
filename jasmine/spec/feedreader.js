@@ -118,22 +118,47 @@ $(function() {
         */
         
         beforeEach((done) => {
-            loadFeed(0, done());
-
+            loadFeed(0, ()=>{
+                done();
+            });
         });
 
-        it('have an entry', () => {
-            // Vanilla js
-            //expect(document.querySelector('.feed .entry-link')).toBeDefined();
-            //jquery
+        it('have an entry', (done) => {
+            
+            // Vanilla js - querySelector returns null if it can't find 
+            // any nodes for the query
+            // expect(document.querySelector('.feed .entry-link')).toBeDefined();
+            // expect(document.querySelector('.feed .entry-link')).not.toBe(null);
+            //jquery - jquery still returns an empty array which still counts
+            // as a defined. So we check the length.
             expect($('.feed .entry-link')).toBeDefined();
+            expect($('.feed .entry-link').length).toBeGreaterThan(0);
+            done();
         });
     });
 
     /* TODO: Write a new test suite named "New Feed Selection" */
+    // describe('New Feed Selection', () => {
+    //     /* TODO: Write a test that ensures when a new feed is loaded
+    //      * by the loadFeed function that the content actually changes.
+    //      * Remember, loadFeed() is asynchronous.
+    //      */
+    //     let firstEntries,
+    //         secondEntries;
+    //     beforeEach((done) => {
+    //         loadFeed(0, ()=>{
+    //             done();
+    //             firstEntries = document.querySelector('.feed').querySelectorAll('.entry-link');
+    //         });
+    //         console.log(firstEntries);
+    //         loadFeed(1, done());
+    //         secondEntries = document.querySelector('.feed').querySelectorAll('.entry-link');
+    //         console.log(secondEntries);
+    //     });
 
-        /* TODO: Write a test that ensures when a new feed is loaded
-         * by the loadFeed function that the content actually changes.
-         * Remember, loadFeed() is asynchronous.
-         */
+    //     it('should replace old feed', (done) => {
+    //         expect(firstEntries).not.toBe(secondEntries);
+    //         done();
+    //     });
+    // });
 }());
