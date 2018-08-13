@@ -70,11 +70,16 @@ $(function() {
         let body;
 
         beforeEach(() => {
-            body = document.querySelector('body');
+            //vanila js
+            // body = document.querySelector('body')
+            // Jquery
+            body = $('body');
         });
 
         it('be hidden', () => {
-            expect(body.classList.contains('menu-hidden')).toBe(true);
+            //vanilla js
+            // expect(body.classList.contains('menu-hidden')).toBe(true);
+            expect(body.hasClass('menu-hidden')).toBe(true);
         });
     });
 
