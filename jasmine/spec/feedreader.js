@@ -149,12 +149,17 @@ $(function() {
             loadFeed(0, ()=>{
                 done();
             });
-            firstEntries = document.querySelector('.feed').querySelectorAll('.entry-link');
+            // vanilla js
+            // firstEntries = document.querySelector('.feed').querySelectorAll('.entry-link');
+            // jquery
+            firstEntries = $('.feed .entry-link');
             // console.log(firstEntries);
             loadFeed(1, ()=>{
                 done();
             });
-            secondEntries = document.querySelector('.feed').querySelectorAll('.entry-link');
+            // vanilla js
+            // secondEntries = document.querySelector('.feed').querySelectorAll('.entry-link');
+            secondEntries = $('.feed .entry-link');
             // console.log(secondEntries);
         });
 
