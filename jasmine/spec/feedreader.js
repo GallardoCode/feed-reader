@@ -123,7 +123,10 @@ $(function() {
         });
 
         it('have an entry', () => {
-            expect(document.querySelector('.feed .entry-link')).toBeDefined();
+            // Vanilla js
+            //expect(document.querySelector('.feed .entry-link')).toBeDefined();
+            //jquery
+            expect($('.feed .entry-link')).toBeDefined();
         });
     });
 
