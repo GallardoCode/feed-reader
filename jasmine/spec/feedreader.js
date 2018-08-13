@@ -67,29 +67,38 @@ $(function() {
          * the CSS to determine how we're performing the
          * hiding/showing of the menu element.
          */
-        let body;
+        let body,
+            menu;
 
         beforeEach(() => {
             //vanila js
-            // body = document.querySelector('body')
+            body = document.querySelector('body')
+            menu = document.querySelector('.menu-icon-link');
             // Jquery
-            body = $('body');
+            //body = $('body');
         });
 
         it('be hidden', () => {
             //vanilla js
-            // expect(body.classList.contains('menu-hidden')).toBe(true);
-            expect(body.hasClass('menu-hidden')).toBe(true);
+            expect(body.classList.contains('menu-hidden')).toBe(true);
+            //expect(body.hasClass('menu-hidden')).toBe(true);
+        });
+        
+        /* TODO: Write a test that ensures the menu changes
+         * visibility when the menu icon is clicked. This test
+         * should have two expectations: does the menu display when
+         * clicked and does it hide when clicked again.
+         */
+        it('toggles class when clicked', () => {
+            menu.click();
+            expect(body.classList.contains('menu-hidden')).toBe(false);
+            menu.click();
+            expect(body.classList.contains('menu-hidden')).toBe(true);
         });
     });
 
 
 
-         /* TODO: Write a test that ensures the menu changes
-          * visibility when the menu icon is clicked. This test
-          * should have two expectations: does the menu display when
-          * clicked and does it hide when clicked again.
-          */
 
     /* TODO: Write a new test suite named "Initial Entries" */
 
