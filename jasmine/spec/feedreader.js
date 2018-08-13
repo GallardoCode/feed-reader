@@ -145,26 +145,30 @@ $(function() {
     //      */
         let firstEntries,
             secondEntries;
-        beforeEach((done) => {
-            loadFeed(0, ()=>{
+        beforeEach(function(done){
+            loadFeed(0, ()=>{ 
                 done();
             });
             // vanilla js
-            // firstEntries = document.querySelector('.feed').querySelectorAll('.entry-link');
+            firstEntries = document.querySelector('.feed .entry-link').innerHTML;   
             // jquery
-            firstEntries = $('.feed .entry-link');
-            // console.log(firstEntries);
-            loadFeed(1, ()=>{
+            // firstEntries = $('.feed .entry-link');
+            //console.log(firstEntries);
+        });
+
+        beforeEach(function(done){
+            // $('.feed').empty();
+            loadFeed(2, ()=>{
                 done();
             });
             // vanilla js
-            // secondEntries = document.querySelector('.feed').querySelectorAll('.entry-link');
-            secondEntries = $('.feed .entry-link');
-            // console.log(secondEntries);
+            // secondEntries = $('.feed .entry-link');
         });
 
         it('should replace old feed', (done) => {
-            expect(firstEntries).not.toBe(secondEntries);
+            secondEntries = document.querySelector('.feed .entry-link').innerHTML;
+            //console.log(secondEntries);
+            expect(firstEntries).not.toEqual(secondEntries);
             done();
         });
     });
