@@ -72,16 +72,18 @@ $(function() {
 
         beforeEach(() => {
             //vanila js
-            body = document.querySelector('body')
-            menu = document.querySelector('.menu-icon-link');
+            // body = document.querySelector('body')
+            // menu = document.querySelector('.menu-icon-link');
             // Jquery
-            //body = $('body');
+            body = $('body');
+            menu = $('.menu-icon-link');
         });
 
         it('be hidden', () => {
             //vanilla js
-            expect(body.classList.contains('menu-hidden')).toBe(true);
-            //expect(body.hasClass('menu-hidden')).toBe(true);
+            //expect(body.classList.contains('menu-hidden')).toBe(true);
+            // Jquery
+            expect(body.hasClass('menu-hidden')).toBe(true);
         });
         
         /* TODO: Write a test that ensures the menu changes
@@ -90,10 +92,16 @@ $(function() {
          * clicked and does it hide when clicked again.
          */
         it('toggles class when clicked', () => {
-            menu.click();
-            expect(body.classList.contains('menu-hidden')).toBe(false);
-            menu.click();
-            expect(body.classList.contains('menu-hidden')).toBe(true);
+            //vanilla js
+            // menu.click();
+            // expect(body.classList.contains('menu-hidden')).toBe(false);
+            // menu.click();
+            // expect(body.classList.contains('menu-hidden')).toBe(true);
+            // jquery
+            menu.trigger('click');
+            expect(body.hasClass('menu-hidden')).toBe(false);
+            menu.trigger('click');
+            expect(body.hasClass('menu-hidden')).toBe(true);
         });
     });
 
