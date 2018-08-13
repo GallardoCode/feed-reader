@@ -150,24 +150,25 @@ $(function() {
                 done();
             });
             // vanilla js
-            firstEntries = document.querySelector('.feed .entry-link').innerHTML;   
+            //firstEntries = document.querySelector('.feed .entry-link').innerHTML;   
             // jquery
-            // firstEntries = $('.feed .entry-link');
-            //console.log(firstEntries);
+            firstEntries = $('.feed').html();
+            console.log(firstEntries);
         });
 
         beforeEach(function(done){
             // $('.feed').empty();
-            loadFeed(2, ()=>{
+            loadFeed(1, ()=>{
                 done();
             });
-            // vanilla js
-            // secondEntries = $('.feed .entry-link');
         });
 
         it('should replace old feed', (done) => {
-            secondEntries = document.querySelector('.feed .entry-link').innerHTML;
-            //console.log(secondEntries);
+            // vanilla js
+            //secondEntries = document.querySelector('.feed .entry-link').innerHTML;
+            //jquery
+            secondEntries = $('.feed').html();
+            console.log(secondEntries);
             expect(firstEntries).not.toEqual(secondEntries);
             done();
         });
