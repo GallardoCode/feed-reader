@@ -138,27 +138,29 @@ $(function() {
     });
 
     /* TODO: Write a new test suite named "New Feed Selection" */
-    // describe('New Feed Selection', () => {
+    describe('New Feed Selection', () => {
     //     /* TODO: Write a test that ensures when a new feed is loaded
     //      * by the loadFeed function that the content actually changes.
     //      * Remember, loadFeed() is asynchronous.
     //      */
-    //     let firstEntries,
-    //         secondEntries;
-    //     beforeEach((done) => {
-    //         loadFeed(0, ()=>{
-    //             done();
-    //             firstEntries = document.querySelector('.feed').querySelectorAll('.entry-link');
-    //         });
-    //         console.log(firstEntries);
-    //         loadFeed(1, done());
-    //         secondEntries = document.querySelector('.feed').querySelectorAll('.entry-link');
-    //         console.log(secondEntries);
-    //     });
+        let firstEntries,
+            secondEntries;
+        beforeEach((done) => {
+            loadFeed(0, ()=>{
+                done();
+            });
+            firstEntries = document.querySelector('.feed').querySelectorAll('.entry-link');
+            // console.log(firstEntries);
+            loadFeed(1, ()=>{
+                done();
+            });
+            secondEntries = document.querySelector('.feed').querySelectorAll('.entry-link');
+            // console.log(secondEntries);
+        });
 
-    //     it('should replace old feed', (done) => {
-    //         expect(firstEntries).not.toBe(secondEntries);
-    //         done();
-    //     });
-    // });
+        it('should replace old feed', (done) => {
+            expect(firstEntries).not.toBe(secondEntries);
+            done();
+        });
+    });
 }());
