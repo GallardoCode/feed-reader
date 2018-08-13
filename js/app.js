@@ -41,6 +41,9 @@ function init() {
  * which will be called after everything has run successfully.
  */
 function loadFeed(id, cb) {
+    if((id + 1) > allFeeds.length){
+        throw new TypeError('Feed index bigger than feeds available');
+    }
     var feedUrl = allFeeds[id].url,
         feedName = allFeeds[id].name;
 

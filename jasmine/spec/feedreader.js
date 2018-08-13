@@ -135,6 +135,12 @@ $(function() {
             expect($('.feed .entry-link').length).toBeGreaterThan(0);
             done();
         });
+
+        it('should throw TypeError if index too big', () => {
+            expect(() => {
+                loadFeed(10)
+            }).toThrowError(TypeError);
+        });
     });
 
     /* TODO: Write a new test suite named "New Feed Selection" */
